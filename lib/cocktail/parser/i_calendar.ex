@@ -201,6 +201,7 @@ defmodule Cocktail.Parser.ICalendar do
   defp parse_rrule_option(_), do: {:error, :unknown_rrulparam}
 
   @spec parse_frequency(String.t()) :: {:ok, Cocktail.frequency()} | {:error, :invalid_frequency}
+  defp parse_frequency("MONTHLY"), do: {:ok, :monthly}
   defp parse_frequency("WEEKLY"), do: {:ok, :weekly}
   defp parse_frequency("DAILY"), do: {:ok, :daily}
   defp parse_frequency("HOURLY"), do: {:ok, :hourly}
